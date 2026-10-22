@@ -27,21 +27,30 @@ unless you point them to another location with `--archive PATH` or the
 `harmony_wig.py` additionally needs the HAIR integration installed at
 `/config/custom_components/hair`; it writes wigs to `/config/hair/wigs/` by default.
 
+## Installation
+
+Place the scripts in **`/config/hair/tools`**:
+
+```sh
+mkdir -p /config/hair/tools
+cp harmony_devices.py harmony_wig.py /config/hair/tools/
+```
+
 ## Usage
 
 Find a device and its global Harmony device ID:
 
 ```sh
-python3 -I harmony_devices.py manufacturers philips
-python3 -I harmony_devices.py search philips bdp3300 --commands
-python3 -I harmony_devices.py show ID
+python3 -I /config/hair/tools/harmony_devices.py manufacturers philips
+python3 -I /config/hair/tools/harmony_devices.py search philips bdp3300 --commands
+python3 -I /config/hair/tools/harmony_devices.py show ID
 ```
 
 Create a wig from it:
 
 ```sh
-python3 -I harmony_wig.py ID --list     # preview the selected commands
-python3 -I harmony_wig.py ID            # write to /config/hair/wigs/
+python3 -I /config/hair/tools/harmony_wig.py ID --list     # preview the selected commands
+python3 -I /config/hair/tools/harmony_wig.py ID            # write to /config/hair/wigs/
 ```
 
 Run either script with `--help` for all options.
