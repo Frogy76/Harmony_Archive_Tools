@@ -7,7 +7,7 @@
     python3 -I harmony_wig.py ID --exclude "0,1,2,3,4,5,6,7,8,9"
     python3 -I harmony_wig.py ID --alias "PowerToggle=Power Toggle" --kind tv -o file.wig.json
 
-The ID can be found with harmony_geraete.py (search/show). The archive's Pronto hex is
+The ID can be found with harmony_devices.py (search/show). The archive's Pronto hex is
 taken over unchanged, only the first frame (`pronto`), without `prontoRepeat` – just like
 the existing wigs in hair/wigs/. Commands without Pronto (IP control, not rendered)
 are skipped and reported.
@@ -85,7 +85,7 @@ def split_list(text: str | None) -> list[str]:
 def main():
     global ARCHIVE
     p = argparse.ArgumentParser(description="Create a HAIR wig from the Harmony IR archive")
-    p.add_argument("id", type=int, help="global Harmony device ID (see harmony_geraete.py)")
+    p.add_argument("id", type=int, help="global Harmony device ID (see harmony_devices.py)")
     p.add_argument("--archive", type=Path, help=f"path to docs/api/v1 (default {ARCHIVE})")
     p.add_argument("-o", "--output", type=Path, help=f"file or directory (default {WIG_DIR})")
     p.add_argument("--name", help="name of the wig (default: Harmony name, e.g. \"Philips BDP3300\")")
